@@ -57,13 +57,13 @@ kubectl cluster-info
 ```bash
 cd lnews-app
 docker login
-docker build --platform linux/amd64 -t inrobas/lnews-app:blue .
+docker buildx build --platform linux/amd64,linux/arm64 -t inrobas/lnews-app:blue --push .
 docker push inrobas/lnews-app:blue
-docker build --platform linux/amd64 -t inrobas/lnews-app:green .
+docker buildx build --platform linux/amd64,linux/arm64 -t inrobas/lnews-app:green --push .
 docker push inrobas/lnews-app:green
 ```
 
-Note - remove `--platform linux/amd64` if you are not on mac.
+`--platform` options added to support compatibility across multiple environments.
 
 ### Docker Deployment
 
