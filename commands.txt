@@ -1,0 +1,6 @@
+cd lnews-app
+docker login
+docker build --platform linux/amd64 -t inrobas/lnews-app:blue .
+docker push inrobas/lnews-app:blue
+docker build --platform linux/amd64 -t inrobas/lnews-app:green .
+docker push inrobas/lnews-app:green
