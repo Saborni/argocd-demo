@@ -7,5 +7,6 @@ config:
       targetRevision: main
 
 applications:
-  - name: argo-test-app
+  - name: lnews-app
     path: manifest/dev
+    namespace: lnews
