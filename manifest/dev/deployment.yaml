@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: lnews-app
+  name: lnews-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lnews-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: lnews-app
+    spec:
+      containers:
+      - image: inrobas/lnews-app:blue
+        name: lnews-app
+        resources: {}
+status: {}

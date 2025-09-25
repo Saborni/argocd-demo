@@ -108,3 +108,6 @@ The project supports blue-green deployment with two image variants (blue and gre
 ## ArgoCD Integration
 
 This project is designed to work with ArgoCD for GitOps-based continuous deployment, supporting blue-green deployment patterns for zero-downtime updates.
+
+helm install argo-apps ./argo-apps -n argocd
+helm upgrade argo-apps ./argo-apps -n argocd

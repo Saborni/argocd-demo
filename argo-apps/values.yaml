@@ -1,0 +1,11 @@
+config:
+  spec:
+    destination:
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/Saborni/argocd-demo
+      targetRevision: main
+
+applications:
+  - name: argo-test-app
+    path: manifest/dev
