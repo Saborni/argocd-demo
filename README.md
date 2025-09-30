@@ -43,7 +43,7 @@ argocd-demo/
 
 ### Endpoints
 - `/` - Main landing page
-- `/health` - Health check endpoint returning `{"message": "OK"}`
+- `/health` - Health check endpoint returning `{"hostname": <Host-IP-address>}`
 
 ## Prerequisites
 - Docker
