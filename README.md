@@ -79,6 +79,8 @@ docker buildx build --platform linux/amd64,linux/arm64 -t inrobas/lnews-app:gree
 
 ### 3. ArgoCD Setup on Minikube
 
+Installation guide available [here](https://argo-cd.readthedocs.io/en/stable/getting_started/#getting-started)
+
 ```bash
 # Install ArgoCD
 kubectl create namespace argocd
@@ -91,7 +93,7 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-Access ArgoCD at `https://localhost:8080` with username `admin` and the password from above.
+Access ArgoCD UI at `https://localhost:8080` with username `admin` and the password from above command.
 
 ### 4. ArgoCD application setup
 
@@ -100,9 +102,8 @@ Consider it as a "deployment configuration" that tells ArgoCD about the Source, 
 
 Before deployment, you would need to configure the [values.yaml](/argo-apps/values.yaml) with
 
-- Source - Your application source repository that contains the manifest files.
-- Destination - kube-api server endpoint, which is used by ArgoCD to maintain the desired state of your application.
-
+- `source` - Your application source repository that contains the manifest files.
+- `destination` - kube-api server endpoint, which is used by ArgoCD to maintain the desired state of your application.
 Additionally, you may tweak `syncPolicy` available in [applications.yaml](/argo-apps/templates/applications.yaml) as per your requirements.
 
 ```yaml
