@@ -58,22 +58,26 @@ kubectl cluster-info
 cd lnews-app
 docker login
 docker buildx build --platform linux/amd64,linux/arm64 -t inrobas/lnews-app:blue --push .
-docker push inrobas/lnews-app:blue
 docker buildx build --platform linux/amd64,linux/arm64 -t inrobas/lnews-app:green --push .
-docker push inrobas/lnews-app:green
 ```
 
-`--platform` options added to support compatibility across multiple environments.
+`--platform` options added to support compatibility across ARM and AMD based environments.
 
-### Docker Deployment
-
-Build and run with Docker:
+### Deploy application
+Go the root of the project and execute the following commands to deploy your application to minikube cluster.
+It creates a deployment object and a clusterip type service.
 
 ```bash
-cd lnews-app
-docker build -t lnews-app .
-docker run -p 5000:5000 lnews-app
+cd manifest/dev
+kubectl apply -f .
 ```
+
+Use port fowarding to access the service from your local machine -
+```bash
+kubectl port-forward service/lnews-svc 5000:5000
+```
+Access your application using `http://localhost:5000`
+![](/images/green-ui.png)
 
 ### ArgoCD Setup on Minikube
 

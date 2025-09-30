@@ -1,6 +1,0 @@
-cd lnews-app
-docker login
-docker buildx build --platform linux/amd64,linux/arm64 -t inrobas/lnews-app:blue --push .
-docker push inrobas/lnews-app:blue
-docker buildx build --platform linux/amd64,linux/arm64 -t inrobas/lnews-app:green --push .
-docker push inrobas/lnews-app:green

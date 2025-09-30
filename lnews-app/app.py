@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import socket
 
 app = Flask(__name__)
 
@@ -8,7 +9,8 @@ def home():
     
 @app.route('/health')
 def health():
-    return {"message":"OK"}
+    IPAddr = socket.gethostbyname(socket.gethostname())
+    return {"hostname": IPAddr}
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
