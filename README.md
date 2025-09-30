@@ -158,3 +158,28 @@ Terminate the port-ward command using `Ctrl+C` and run it again.
 kubectl port-forward service/lnews-svc 5000:5000 -n lnews
 ```
 ![](/images/green-ui.png)
+
+Test ArgoCD's drift detection and self-healing capabilities by manually scaling the deployment:
+
+# Scale deployment to 5 replicas (drift from desired state)
+kubectl scale deployment lnews-app --replicas=5 -n lnews
+
+# Scale deployment to 0 replica (drift from desired state)
+kubectl scale deployment lnews-app --replicas=0 -n lnews
+
+# Watch ArgoCD automatically restore to desired state (2 replicas)
+kubectl get pods -n lnews
+
+ArgoCD will detect the configuration drift and automatically scale back to the desired state defined in your Git repository, demonstrating GitOps principles in action.
+
+## CleanUp
+
+Delete the ArgoCD application config
+```bash
+helm uninstall my-apps -n argocd
+```
+
+Alternately, clear everything using -
+```bash
+minikube delete --all
+```
