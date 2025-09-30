@@ -146,6 +146,14 @@ On accessing endpoint `http://localhost:5000`, you will observe the following -
 
 ![](/images/green-ui.png)
 
-Now change the image tag from `blue` to `green` in the deployment [manifest](/manifest/dev/deployment.yaml) in your GitHub repo. Terminate the port-ward command using Ctrl+C and run it again.
+Now change the image tag from `blue` to `green` in the deployment [manifest](/manifest/dev/deployment.yaml) in your GitHub repo. 
 
-![](/images/green-ui.png)
+In the ArgoCD UI, you will observe a new replicaset is created and the old pods are shutting down.
+![](/images/after-commit.png)
+
+Terminate the port-ward command using Ctrl+C and run it again.
+```bash
+kubectl port-forward service/lnews-svc 5000:5000 -n lnews
+```
+
+![](/images/blue-ui.png)
