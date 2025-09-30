@@ -77,6 +77,7 @@ Use port fowarding to access the service from your local machine -
 kubectl port-forward service/lnews-svc 5000:5000
 ```
 Access your application using `http://localhost:5000`
+
 ![](/images/green-ui.png)
 
 ### ArgoCD Setup on Minikube
