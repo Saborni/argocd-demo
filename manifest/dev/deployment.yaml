@@ -16,6 +16,6 @@ spec:
         app: lnews-app
     spec:
       containers:
-      - image: inrobas/lnews-app:blue
+      - image: inrobas/lnews-app:green
         name: lnews-app
         resources: {}
