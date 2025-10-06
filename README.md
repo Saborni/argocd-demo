@@ -1,6 +1,6 @@
 # ArgoCD Demo
 
-A demonstration project showcasing ArgoCD deployment with blue-green deployment strategy using a simple Flask web application.
+A demonstration project showcasing how ArgoCD maintains the state of your infrastructure referring to a Git repo as the single source of truth.
 
 ## Pre-requisites
 Knowledge on following is required:
